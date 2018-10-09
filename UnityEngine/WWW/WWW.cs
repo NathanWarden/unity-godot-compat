@@ -87,7 +87,7 @@ namespace UnityEngine
 					"Content-Length: " + requestData.Length
 				};
 
-				requestNode.Request(_url, headers, false, (int)_method, requestData);
+				requestNode.Request(_url, headers, false, (HTTPClient.Method)_method, requestData);
 			}
 		}
 

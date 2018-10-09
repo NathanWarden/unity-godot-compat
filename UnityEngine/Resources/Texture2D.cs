@@ -283,7 +283,7 @@ namespace UnityEngine
 					}
 				}
 
-				image.CreateFromData(bm.Width, bm.Height, false, 5, bytes);
+				image.CreateFromData(bm.Width, bm.Height, false, Godot.Image.Format.Rgba8, bytes);
 				_texture.CreateFromImage(image);
 			}
 			catch (System.Exception e)

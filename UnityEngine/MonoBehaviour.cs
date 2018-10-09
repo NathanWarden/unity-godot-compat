@@ -1,5 +1,4 @@
-﻿using System.Reflection;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using Godot;
 
@@ -18,6 +17,18 @@ namespace UnityEngine
 		public MonoBehaviour()
 		{
 			gameObject = new GameObject(this);
+		}
+
+		// Probably use an interface as the type contraint
+		public static void DontDestroyOnLoad(object obj)
+		{
+			throw new System.NotImplementedException();
+		}
+
+		// Probably use an interface as the type contraint
+		public static void Destroy(object obj)
+		{
+			throw new System.NotImplementedException();
 		}
 	}
 }

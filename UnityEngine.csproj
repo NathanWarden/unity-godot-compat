@@ -11,19 +11,21 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <BaseIntermediateOutputPath>.mono/temp/obj</BaseIntermediateOutputPath>
     <IntermediateOutputPath>$(BaseIntermediateOutputPath)/$(Configuration)</IntermediateOutputPath>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <DefineConstants>DEBUG;</DefineConstants>
+    <DefineConstants>DEBUG;NOT_UNITY</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>full</DebugType>
     <Optimize>true</Optimize>
+    <DefineConstants>NOT_UNITY</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
@@ -32,20 +34,19 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <DefineConstants>DEBUG;TOOLS;</DefineConstants>
+    <DefineConstants>DEBUG;TOOLS;NOT_UNITY</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="GodotSharp">
-      <HintPath>$(ProjectDir)/.mono/assemblies/GodotSharp.dll</HintPath>
-    </Reference>
     <Reference Include="System.Drawing" />
+    <Reference Include="GodotSharp">
+      <HintPath>..\..\Godot_BAG\.mono\assemblies\GodotSharp.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Properties/AssemblyInfo.cs" />
     <Compile Include="UnityEngine\AssetBundle.cs" />
     <Compile Include="UnityEngine\CachedAssetBundle.cs" />
     <Compile Include="UnityEngine\Debug.cs" />
@@ -128,12 +129,32 @@
     <Compile Include="UnityEngine\GodotCompatibility\Visibility\CanvasItemVisibilityHandler.cs" />
     <Compile Include="UnityEngine\Attributes\MonoBehaviorAttribute.cs" />
     <Compile Include="UnityEngine\MonoBehaviourController.cs" />
+    <Compile Include="UnityEngine\Enumerations\LogType.cs" />
+    <Compile Include="UnityEngine\Data\RaycastHit.cs" />
+    <Compile Include="UnityEngine\Components\Rigidbody.cs" />
+    <Compile Include="UnityEngine\Components\Collider.cs" />
+    <Compile Include="UnityEngine\Components\Camera.cs" />
+    <Compile Include="UnityEngine\Resources\Material.cs" />
+    <Compile Include="UnityEngine\Resources\GUIStyle.cs" />
+    <Compile Include="UnityEngine\Resources\Font.cs" />
+    <Compile Include="UnityEngine\Resources\Sprite.cs" />
+    <Compile Include="UnityEngine\Resources\GUIContent.cs" />
+    <Compile Include="UnityEngine\Utilities\GUI.cs" />
+    <Compile Include="UnityEngine\Resources\GUISkin.cs" />
+    <Compile Include="UnityEngine\Enumerations\TextAnchor.cs" />
+    <Compile Include="UnityEngine\Enumerations\FontStyle.cs" />
+    <Compile Include="UnityEngine\Components\Renderer.cs" />
+    <Compile Include="UnityEngine\Components\MeshCollider.cs" />
+    <Compile Include="UnityEngine\Utilities\SystemInfo.cs" />
+    <Compile Include="UnityEngine\Data\Ray.cs" />
+    <Compile Include="UnityEngine\Utilities\Physics.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="UnityEngine\Screen\" />
     <Folder Include="UnityEngine\SceneManagement\" />
     <Folder Include="UnityEngine\UnityEngine.UI\" />
     <Folder Include="UnityEngine\GodotCompatibility\Visibility\" />
+    <Folder Include="UnityEngine\Components\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)/Microsoft.CSharp.targets" />
 </Project>

@@ -30,7 +30,7 @@ namespace UnityEngine
 		public static void LogError(object obj)
 		{
 			if ( obj != null )
-				GD.Printerr(obj.ToString());
+				GD.PrintErr(obj.ToString());
 			else
 				GD.Print(nullString);
 		}

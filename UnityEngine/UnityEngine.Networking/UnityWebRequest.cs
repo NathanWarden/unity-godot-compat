@@ -688,23 +688,6 @@ namespace UnityEngine.Networking
 			AsyncOperation asyncOp = (AsyncOperation)state;
 			Godot.HTTPClient client = new Godot.HTTPClient();
 
-			//client.ConnectToHost(url, 80, url.StartsWith("https", StringComparison.CurrentCulture), false);
-
-			/*client.ConnectToHost(url, 80);
-
-			do
-			{
-				client.Poll();
-				Thread.Sleep(100);
-
-				if (client.GetStatus() == Godot.HTTPClient.STATUS_CANT_RESOLVE)
-				{
-					Debug.Log("Can't resolve");
-					return;
-				}
-			}
-			while (client.GetStatus() != Godot.HTTPClient.STATUS_CONNECTED);*/
-
 			List<string> headersList = new List<string>();
 
 			headers.Add("User-Agent", "Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko");
@@ -716,7 +699,7 @@ namespace UnityEngine.Networking
 				headersList.Add(key + ": " + headers[key]);
 			}
 
-			client.Request((int)_method, url, headersList.ToArray());
+			client.Request((Godot.HTTPClient.Method)_method, url, headersList.ToArray());
 
 			do
 			{
@@ -725,13 +708,11 @@ namespace UnityEngine.Networking
 				Debug.Log(client.GetStatus());
 				Debug.Log(client.GetResponseBodyLength());
 			}
-			while (client.GetStatus() == Godot.HTTPClient.STATUS_CONNECTED || client.GetStatus() == Godot.HTTPClient.STATUS_REQUESTING);
+			while (client.GetStatus() == Godot.HTTPClient.Status.Connected || client.GetStatus() == Godot.HTTPClient.Status.Requesting);
 
 			Debug.Log("Stat: " + client.GetStatus());
 			Debug.Log(client.GetResponseBodyLength());
 			Debug.Log(Encoding.Default.GetString(client.ReadResponseBodyChunk()));
-			//foreach ( string res in )
-
 			Debug.Log("Req: " + client.GetStatus());
 
 			asyncOp.isDone = true;

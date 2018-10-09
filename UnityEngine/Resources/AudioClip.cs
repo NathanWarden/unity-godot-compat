@@ -208,11 +208,5 @@ namespace UnityEngine
 				} while (pCMSetPositionCallback != pCMSetPositionCallback2);
 			}
 		}*/
-
-
-		public static void Destroy(object clip)
-		{
-			Debug.Log("AudioClip.Destroy not implemented");
-		}
 	}
 }

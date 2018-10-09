@@ -1,4 +1,5 @@
-﻿using Godot;
+﻿using System;
+using Godot;
 using System.Reflection;
 
 namespace UnityEngine
@@ -14,8 +15,9 @@ namespace UnityEngine
 			set { _node.SetName(value); }
 		}
 
-
 		public Transform transform { get; private set; }
+
+		public int layer { get { throw new NotImplementedException(); } set { throw new NotImplementedException(); } }
 
 
 		internal GameObject(Node node)
@@ -58,7 +60,7 @@ namespace UnityEngine
 		}
 
 
-		private static Node FindChild(Node parent, string name)
+		static Node FindChild(Node parent, string name)
 		{
 			int childCount = parent.GetChildCount();
 
@@ -109,5 +111,5 @@ namespace UnityEngine
 		{
 			return new GameObject(node);
 		}
-    }
+	}
 }

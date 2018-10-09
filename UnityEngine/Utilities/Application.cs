@@ -5,6 +5,8 @@ namespace UnityEngine
 {
 	public static class Application
 	{
+		public static Action<string, string, LogType> logMessageReceived;
+
 		public static int targetFrameRate
 		{
 			get

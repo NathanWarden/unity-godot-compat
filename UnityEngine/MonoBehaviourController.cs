@@ -10,20 +10,20 @@ namespace UnityEngine
 		Node referencedNode;
 
 		public List<IEnumerator> coroutines = new List<IEnumerator>();
-		bool startCalled = false;
+		bool startCalled;
 
 		public GameObject gameObject { get; private set; }
 		public Transform transform { get; private set; }
 
 		public string name { get { return referencedNode.GetName(); } set { referencedNode.SetName(value); } }
 
-		MethodInfo awakeMethod = null;
-		MethodInfo startMethod = null;
-		MethodInfo startMethodCR = null;
-		MethodInfo updateMethod = null;
-		MethodInfo fixedUpdateMethod = null;
-		MethodInfo onEnabledMethod = null;
-		MethodInfo onDisabledMethod = null;
+		MethodInfo awakeMethod;
+		MethodInfo startMethod;
+		MethodInfo startMethodCR;
+		MethodInfo updateMethod;
+		MethodInfo fixedUpdateMethod;
+		MethodInfo onEnabledMethod;
+		MethodInfo onDisabledMethod;
 
 		const BindingFlags bindingFlags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
 
@@ -35,6 +35,8 @@ namespace UnityEngine
 		{
 			referencedNode = node;
 		}
+
+
 		MethodInfo FindMethod(string methodName, System.Type returnType, System.Type type = null)
 		{
 			type = type == null ? referencedNode.GetType() : type;
